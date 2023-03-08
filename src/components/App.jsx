@@ -12,7 +12,7 @@ const App = () => {
     dispatch(fetchContacts());
   }, [dispatch]);
   const error = useSelector(selectError);
-  console.log(error);
+
   return (
     <>
       <h1>Phonebook</h1>
@@ -20,11 +20,10 @@ const App = () => {
       <h1>Contacts</h1>
       <Filter />
       {error && (
-        <>
+        <div style={{ color: 'red' }}>
           <p>Oooops ...</p>
-          <p>Contacts're stuck on the server.</p>
-          <p>Use your phonebook some other time:(</p>
-        </>
+          <p>{error}</p>
+        </div>
       )}
       <ContactList />
     </>
