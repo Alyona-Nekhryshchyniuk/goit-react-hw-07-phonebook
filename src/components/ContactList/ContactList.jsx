@@ -16,7 +16,6 @@ const ContactList = () => {
 
   const loweredFilter = filterValue.toLowerCase();
   const contactList = useSelector(state => state.contact.items);
-  console.log(contactList);
   const filteredList = contactList.filter(({ name }) =>
     name.toLowerCase().includes(loweredFilter)
   );

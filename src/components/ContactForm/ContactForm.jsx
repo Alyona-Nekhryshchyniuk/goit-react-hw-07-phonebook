@@ -30,7 +30,6 @@ const ContactForm = () => {
         contacts.find(obj => obj.name === name)
           ? alert(`${name} is already in contacts`)
           : dispatch(addContact({ name, number }));
-        // : dispatch(addContact({ name, number }));
         setName('');
         setNumber('');
       }}
