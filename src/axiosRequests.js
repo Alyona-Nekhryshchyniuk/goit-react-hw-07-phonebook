@@ -11,5 +11,5 @@ export const fetchAll = () => {
 };
 
 export const deleteContact = contactId => {
-  return axios.delete(`/contacts1/${contactId}`);
+  return axios.delete(`/contacts/${contactId}`);
 };
