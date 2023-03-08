@@ -5,6 +5,7 @@ import {
   useSelector,
   setFilterValue,
 } from '../../components';
+import { selectFilter } from '../../redux/selectors';
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const Filter = () => {
           dispatch(setFilterValue(e.target.value));
         }}
         // All state goes to useSelector(), not only filter!
-        value={useSelector(state => state.filter)}
+        value={useSelector(selectFilter)}
       />
     </label>
   );

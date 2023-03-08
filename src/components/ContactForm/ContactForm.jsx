@@ -10,12 +10,13 @@ import {
   useSelector,
 } from '../../components';
 import { addContact } from '../../redux/operations';
+import { selectContacts } from '../../redux/selectors';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contact.items);
+  const contacts = useSelector(selectContacts);
 
   const inputChange = ({ target }) => {
     if (target.name === 'name') return setName(target.value);

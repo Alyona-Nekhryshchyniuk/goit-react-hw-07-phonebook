@@ -9,16 +9,11 @@ import {
   useSelector,
 } from '../../components';
 import { deleteContact } from '../../redux/operations';
+import { selectFilteredList } from '../../redux/selectors';
 
 const ContactList = () => {
   const dispatch = useDispatch();
-  const filterValue = useSelector(state => state.filter);
-
-  const loweredFilter = filterValue.toLowerCase();
-  const contactList = useSelector(state => state.contact.items);
-  const filteredList = contactList.filter(({ name }) =>
-    name.toLowerCase().includes(loweredFilter)
-  );
+  const filteredList = useSelector(selectFilteredList);
 
   return (
     <>
