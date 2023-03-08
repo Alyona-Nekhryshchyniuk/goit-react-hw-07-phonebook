@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = '';
+axios.defaults.baseURL = 'https://63da6ba5b28a3148f686d43d.mockapi.io';
 
 export const postContact = data => {
   return axios.post('/contacts', data);
@@ -10,6 +10,9 @@ export const fetchAll = () => {
   return axios.get('/contacts');
 };
 
-export const deleteContact = id => {
-  return axios.delete('/contacts', id);
+export const deleteContact = contactId => {
+  console.log(contactId);
+  return axios.delete(`/contacts/${contactId}`);
+  // console.log(ro);
+  // return ro;
 };

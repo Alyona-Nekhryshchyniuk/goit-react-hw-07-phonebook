@@ -8,15 +8,14 @@ import {
   useState,
   useDispatch,
   useSelector,
-  addContact,
 } from '../../components';
-import * as operations from '../../redux/operations';
+import { addContact } from '../../redux/operations';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contact);
+  const contacts = useSelector(state => state.contact.items);
 
   const inputChange = ({ target }) => {
     if (target.name === 'name') return setName(target.value);
@@ -30,7 +29,7 @@ const ContactForm = () => {
         e.preventDefault();
         contacts.find(obj => obj.name === name)
           ? alert(`${name} is already in contacts`)
-          : dispatch(operations.addContact({ name, number }));
+          : dispatch(addContact({ name, number }));
         // : dispatch(addContact({ name, number }));
         setName('');
         setNumber('');

@@ -6,17 +6,17 @@ import {
   RiContactsLine,
   RiDeleteBin6Line,
   useDispatch,
-  deleteContact,
   useSelector,
 } from '../../components';
+import { deleteContact } from '../../redux/operations';
 
 const ContactList = () => {
   const dispatch = useDispatch();
   const filterValue = useSelector(state => state.filter);
 
   const loweredFilter = filterValue.toLowerCase();
-  const contactList = useSelector(state => state.contact);
-
+  const contactList = useSelector(state => state.contact.items);
+  console.log(contactList);
   const filteredList = contactList.filter(({ name }) =>
     name.toLowerCase().includes(loweredFilter)
   );
@@ -36,14 +36,13 @@ const ContactList = () => {
                     dispatch(deleteContact(id));
                   }}
                 >
-                  {' '}
                   <RiDeleteBin6Line
                     style={{
                       fill: '#ffee7d',
                       width: '18px',
                       height: '18px',
                     }}
-                  />{' '}
+                  />
                   Delete
                 </Button>
               </ListItem>
